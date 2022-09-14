@@ -12,12 +12,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         client = EmailClient.from_connection_string(connection_string)
         sender = "$SENDER"
         data = dload.json("https://api.openweathermap.org/data/2.5/weather?q=" +
-                          "Taroudant"+"&units=metric&appid=10233baa27900bde1363821e57d39603")
+                          "Bordeaux"+"&units=metric&appid=10233baa27900bde1363821e57d39603")
         temperature = data["main"]["feels_like"]
         description = data["weather"][0]["description"]
         icon = data["weather"][0]["icon"]
         content = EmailContent(
-            subject="Today's weather in Taroudat",
+            subject="Today's weather in Bordeaux",
             plain_text=("The temperature is "+str(temperature)+"\r\n"
                         "Today is "+description
                         ),
